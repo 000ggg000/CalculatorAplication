@@ -23,6 +23,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//span[text()='Įvestas prisijungimo vardas ir/ arba slaptažodis yra neteisingi']")
     WebElement errorMessage;
 
+
     @FindBy(xpath = "//span[text()='Sėkmingai atsijungėte']")
     WebElement loggedOutMessage;
 

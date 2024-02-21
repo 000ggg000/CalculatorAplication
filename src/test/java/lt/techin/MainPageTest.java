@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static lt.techin.utils.TestUtils.log;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MainPageTest extends BasePageTest {
@@ -24,7 +25,7 @@ public class MainPageTest extends BasePageTest {
         mainPage.pressCreateAccount();
         assertTrue(registerPage.isRedirectedToThePage(), "redirected to the wrong page.");
         log.info("navigation to registering page");
-        String name = "Jonukas";
+        String name = "Jonuks";
         registerPage.writeName(name);
         registerPage.writePassword("John123");
         registerPage.pressSubmitCreateAccount();
@@ -47,6 +48,5 @@ public class MainPageTest extends BasePageTest {
         assertEquals("Toks vartotojo vardas jau egzistuoja", registerPage.errorMessageText());
         log.info("successfully not registered to the calculator page with the existing name.");
     }
-
 
 }

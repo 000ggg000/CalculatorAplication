@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegisterPage extends BasePage{
+public class RegisterPage extends BasePage {
 
     @FindBy(xpath = "//h2[@class='form-signin-heading']")
     WebElement createAccountTitle;
@@ -24,31 +24,47 @@ public class RegisterPage extends BasePage{
     @FindBy(id = "username.errors")
     WebElement errorMessage;
 
+    @FindBy(id = "password.errors")
+    WebElement errorMessageForPassword;
+
 
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
 
-    public boolean isRedirectedToThePage(){
+    public boolean isRedirectedToThePage() {
         return createAccountTitle.isDisplayed();
     }
 
-    public void writeName(String name){
+    public void writeName(String name) {
         inputName.sendKeys(name);
     }
-    public void writePassword(String password){
+
+    public void writePassword(String password) {
         inputPassword.sendKeys(password);
         inputConfirmPassword.sendKeys(password);
     }
-    public void pressSubmitCreateAccount(){
+
+    public void pressSubmitCreateAccount() {
         submitButton.click();
     }
 
-    public boolean isErrorMessageDisplayed(){
+    public boolean isErrorMessageDisplayed() {
         return errorMessage.isDisplayed();
     }
+    public boolean isErrorMessageforPasswordDisplayed() {
+        return errorMessageForPassword.isDisplayed();
+    }
 
-    public String errorMessageText(){
+    public String errorMessageText() {
         return errorMessage.getText();
+    }
+
+    public void writePasswordParameterized(String password) {
+        inputPassword.sendKeys(password);
+    }
+
+    public void writeConfirmPasswordParameterized(String password) {
+        inputConfirmPassword.sendKeys(password);
     }
 }
