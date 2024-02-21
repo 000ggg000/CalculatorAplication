@@ -31,7 +31,7 @@ public class MainPageTest extends BasePageTest {
         registerPage.writeName(name);
         registerPage.writePassword("John123");
         registerPage.pressSubmitCreateAccount();
-        assertTrue(calculatorPage.islogoutNameTextdisplayed(name), "The user did not successfully logged in.");
+        assertTrue(calculatorPage.isLogoutNameTextDisplayed(name), "The user did not successfully logged in.");
         log.info("successfully registered to the calculator page");
     }
 
@@ -53,7 +53,7 @@ public class MainPageTest extends BasePageTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/main/resources/registeringNames.csv", numLinesToSkip = 1)
-    void parameterizedRegisterToTheCalculatorPageNegativeTests(String name, String password, String confirmPassword){
+    void parameterizedRegisterToTheCalculatorPageNegativeTests(String name, String password, String confirmPassword) {
         MainPage mainPage = new MainPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
         mainPage.pressCreateAccount();

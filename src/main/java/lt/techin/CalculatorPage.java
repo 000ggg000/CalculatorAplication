@@ -12,12 +12,12 @@ public class CalculatorPage extends BasePage {
         super(driver);
     }
 
-    public boolean islogoutNameTextdisplayed(String name) {
+    public boolean isLogoutNameTextDisplayed(String name) {
         WebElement logoutNameText = driver.findElement(By.xpath("//a[text()='Logout, " + name + "']"));
         return logoutNameText.isDisplayed();
     }
 
-    public void clickLogoutButton(String name){
+    public void clickLogoutButton(String name) {
         WebElement logoutNameText = driver.findElement(By.xpath("//a[text()='Logout, " + name + "']"));
         logoutNameText.click();
 

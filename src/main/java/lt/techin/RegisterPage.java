@@ -24,12 +24,6 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "username.errors")
     WebElement errorMessage;
 
-    @FindBy(id = "password.errors")
-    WebElement errorMessageForPassword;
-
-    @FindBy(id = "passwordConfirm.errors")
-    WebElement errorMessageForPasswordConfirm;
-
     @FindBy(xpath = "//span")
     WebElement errorMessageGeneral;
 
@@ -58,12 +52,7 @@ public class RegisterPage extends BasePage {
     public boolean isErrorMessageDisplayed() {
         return errorMessage.isDisplayed();
     }
-    public boolean isErrorMessageForPasswordDisplayed() {
-        return errorMessageForPassword.isDisplayed();
-    }
-    public boolean isErrorMessageForPasswordConfirmDisplayed() {
-        return errorMessageForPasswordConfirm.isDisplayed();
-    }
+
 
     public boolean isErrorMessageGeneralDisplayed() {
         return errorMessageGeneral.isDisplayed();

@@ -6,7 +6,7 @@ import static lt.techin.utils.TestUtils.log;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LogoutPageTest extends BasePageTest{
+public class LogoutPageTest extends BasePageTest {
 
     @Test
     void logoutFromTheCalculatorPageTest() {
@@ -17,11 +17,11 @@ public class LogoutPageTest extends BasePageTest{
         mainPage.setName(name);
         mainPage.setPassword(password);
         mainPage.clickLoginButton();
-        assertTrue(calculatorPage.islogoutNameTextdisplayed(name), "The user did not successfully logged in.");
+        assertTrue(calculatorPage.isLogoutNameTextDisplayed(name), "The user did not successfully logged in.");
         log.info("successfully logged in to the calculator page");
         calculatorPage.clickLogoutButton(name);
-        assertTrue(mainPage.isLoggedoutMessageDisplayed(), "The message did not appear.");
-        assertEquals("Sėkmingai atsijungėte", mainPage.loggedoutMessageText());
+        assertTrue(mainPage.isLogoutMessageDisplayed(), "The message did not appear.");
+        assertEquals("Sėkmingai atsijungėte", mainPage.logoutMessageText());
         log.info("successfully logged out from the calculator page with the existing name.");
 
     }

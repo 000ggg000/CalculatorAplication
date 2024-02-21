@@ -41,30 +41,32 @@ public class MainPage extends BasePage {
         createAccount.click();
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         inputName.sendKeys(name);
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         inputPassword.sendKeys(password);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         loginButton.click();
     }
 
-    public boolean isErrorMessageDisplayed(){
+    public boolean isErrorMessageDisplayed() {
         return errorMessage.isDisplayed();
     }
 
-    public String errorMessageText(){
+    public String errorMessageText() {
         return errorMessage.getText();
     }
 
-    public boolean isLoggedoutMessageDisplayed(){
+    public boolean isLogoutMessageDisplayed() {
         return loggedOutMessage.isDisplayed();
     }
 
-    public String loggedoutMessageText(){
+
+    public String logoutMessageText() {
         return loggedOutMessage.getText();
     }
 }

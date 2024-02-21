@@ -18,7 +18,7 @@ public class LoginPageTest extends BasePageTest {
         mainPage.setName(name);
         mainPage.setPassword(password);
         mainPage.clickLoginButton();
-        assertTrue(calculatorPage.islogoutNameTextdisplayed(name), "The user did not successfully logged in.");
+        assertTrue(calculatorPage.isLogoutNameTextDisplayed(name), "The user did not successfully logged in.");
         log.info("successfully logged in to the calculator page");
     }
 
@@ -37,7 +37,7 @@ public class LoginPageTest extends BasePageTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/main/resources/loginNames.csv", numLinesToSkip = 1)
-    void parameterizedLoginToTheCalculatorPageNegativeTests(String name, String password){
+    void parameterizedLoginToTheCalculatorPageNegativeTests(String name, String password) {
         MainPage mainPage = new MainPage(driver);
         mainPage.setName(name);
         mainPage.setPassword(password);
