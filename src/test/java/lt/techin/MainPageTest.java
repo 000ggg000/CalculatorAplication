@@ -17,34 +17,37 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MainPageTest extends BasePageTest {
 
     @Test
-    void addTheProductAndCheckIfItIs() {
+    void createAccountPositiveTest() {
         MainPage mainPage = new MainPage(driver);
-        mainPage.addProduct("Butter", 250);
-        mainPage.addProduct("Milk", 100);
+        RegisterPage registerPage = new RegisterPage(driver);
+        CalculatorPage calculatorPage = new CalculatorPage(driver);
+        mainPage.pressCreateAccount();
+        assertTrue(registerPage.isRedirectedToThePage(), "redirected to the wrong page.");
+        log.info("navigation to registering page");
+        String name = "Jonas";
+        registerPage.writeName(name);
+        registerPage.writePassword("John123");
+        registerPage.pressSubmitCreateAccount();
+        assertTrue(calculatorPage.islogoutNameTextdisplayed(name), "The user did not successfully logged in.");
+        log.info("successfully registered to the calculator page");
+    }
 
+    @Test
+    void createAccountNegativeTest() {
+        MainPage mainPage = new MainPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        mainPage.pressCreateAccount();
+        assertTrue(registerPage.isRedirectedToThePage(), "redirected to the wrong page.");
+        log.info("navigation to registering page");
+        String name = "Jonas";
+        registerPage.writeName(name);
+        registerPage.writePassword("John123");
+        registerPage.pressSubmitCreateAccount();
+        assertTrue(registerPage.isErrorMessageDisplayed(), "The message did not appear.");
+        assertEquals("Toks vartotojo vardas jau egzistuoja", registerPage.errorMessageText());
+        log.info("successfully registered to the calculator page");
         log.info("navigation to page");
     }
-    @Test
-    void clickOnQAButton() {
-        MainPage mainPage = new MainPage(driver);
-//        QAPage qaPage = new QAPage(driver);
-//        mainPage.selectQAButton();
-//        assertEquals("QA", qaPage.titleQaDisplayed(), "The page was not redirected to QA");
-
-       log.info("navigation to page");
-    }
-
-//    @ParameterizedTest
-//    @CsvFileSource(files = "src/main/resources/names.csv", numLinesToSkip = 1)
-//    void testWithCsvFileSourceFromFileFindItemName(String name) {
-//        MainPage mainPage = new MainPage(driver);
-//        QAPage qaPage = new QAPage(driver);
-//        mainPage.selectQAButton();
-//        qaPage.clickShowItemsInList();
-//        assertTrue(qaPage.namesOfItemsDisplayed(name), "The item was not found");
-//        assertEquals(name, qaPage.namesOfItemsDisplayedName(name), "" + name + " does not exist in the eshop");
-//
-//    }
 
 
 }

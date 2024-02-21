@@ -8,16 +8,17 @@ import java.time.Duration;
 
 public class MainPage extends BasePage {
 
-    //    @FindBy(xpath = "//a[text()='QA']")
-//    WebElement buttonQASelect;
-    @FindBy(id = "item-name")
-    WebElement inputAddItem;
+    @FindBy(xpath = "//a[text()='Sukurti naują paskyrą']")
+    WebElement createAccount;
 
-    @FindBy(id = "item-calories")
-    WebElement inputAddCalories;
+    @FindBy(css = "input[name='username']")
+    WebElement inputName;
 
-    @FindBy(xpath = "//button[@class='add-btn btn blue darken-3']")
-    WebElement addMealButton;
+    @FindBy(css = "input[name='password']")
+    WebElement inputPassword;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    WebElement loginButton;
 
 
     public MainPage(WebDriver driver) {
@@ -29,9 +30,7 @@ public class MainPage extends BasePage {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    public void addProduct(String item, int calories) {
-        inputAddItem.sendKeys(item);
-        inputAddCalories.sendKeys(calories + "");
-        addMealButton.click();
+    public void pressCreateAccount() {
+        createAccount.click();
     }
 }

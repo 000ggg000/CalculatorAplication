@@ -18,14 +18,14 @@ public class BasePageTest {
     @BeforeEach
     void setup() {
         this.driver = new ChromeDriver();
-        this.driver.get("https://practice.expandtesting.com/tracalorie/");
+        this.driver.get("http://localhost:8080/");
         this.driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterEach
     void closeDown() {
-        this.driver.quit();
+//        this.driver.quit();
         log.info("WebDriver closed");
     }
 
