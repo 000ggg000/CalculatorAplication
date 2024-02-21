@@ -16,4 +16,10 @@ public class CalculatorPage extends BasePage {
         WebElement logoutNameText = driver.findElement(By.xpath("//a[text()='Logout, " + name + "']"));
         return logoutNameText.isDisplayed();
     }
+
+    public void clickLogoutButton(String name){
+        WebElement logoutNameText = driver.findElement(By.xpath("//a[text()='Logout, " + name + "']"));
+        logoutNameText.click();
+
+    }
 }

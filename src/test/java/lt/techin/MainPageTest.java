@@ -45,8 +45,7 @@ public class MainPageTest extends BasePageTest {
         registerPage.pressSubmitCreateAccount();
         assertTrue(registerPage.isErrorMessageDisplayed(), "The message did not appear.");
         assertEquals("Toks vartotojo vardas jau egzistuoja", registerPage.errorMessageText());
-        log.info("successfully registered to the calculator page");
-        log.info("navigation to page");
+        log.info("successfully not registered to the calculator page with the existing name.");
     }
 
 

@@ -20,6 +20,12 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
     WebElement loginButton;
 
+    @FindBy(xpath = "//span[text()='Įvestas prisijungimo vardas ir/ arba slaptažodis yra neteisingi']")
+    WebElement errorMessage;
+
+    @FindBy(xpath = "//span[text()='Sėkmingai atsijungėte']")
+    WebElement loggedOutMessage;
+
 
     public MainPage(WebDriver driver) {
 
@@ -32,5 +38,32 @@ public class MainPage extends BasePage {
 
     public void pressCreateAccount() {
         createAccount.click();
+    }
+
+    public void setName(String name){
+        inputName.sendKeys(name);
+    }
+    public void setPassword(String password){
+        inputPassword.sendKeys(password);
+    }
+
+    public void clickLoginButton(){
+        loginButton.click();
+    }
+
+    public boolean isErrorMessageDisplayed(){
+        return errorMessage.isDisplayed();
+    }
+
+    public String errorMessageText(){
+        return errorMessage.getText();
+    }
+
+    public boolean isLoggedoutMessageDisplayed(){
+        return loggedOutMessage.isDisplayed();
+    }
+
+    public String loggedoutMessageText(){
+        return loggedOutMessage.getText();
     }
 }
