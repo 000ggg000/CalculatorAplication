@@ -27,6 +27,12 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "password.errors")
     WebElement errorMessageForPassword;
 
+    @FindBy(id = "passwordConfirm.errors")
+    WebElement errorMessageForPasswordConfirm;
+
+    @FindBy(xpath = "//span")
+    WebElement errorMessageGeneral;
+
 
     public RegisterPage(WebDriver driver) {
         super(driver);
@@ -52,8 +58,15 @@ public class RegisterPage extends BasePage {
     public boolean isErrorMessageDisplayed() {
         return errorMessage.isDisplayed();
     }
-    public boolean isErrorMessageforPasswordDisplayed() {
+    public boolean isErrorMessageForPasswordDisplayed() {
         return errorMessageForPassword.isDisplayed();
+    }
+    public boolean isErrorMessageForPasswordConfirmDisplayed() {
+        return errorMessageForPasswordConfirm.isDisplayed();
+    }
+
+    public boolean isErrorMessageGeneralDisplayed() {
+        return errorMessageGeneral.isDisplayed();
     }
 
     public String errorMessageText() {
