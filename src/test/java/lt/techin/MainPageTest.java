@@ -24,7 +24,7 @@ public class MainPageTest extends BasePageTest {
         mainPage.pressCreateAccount();
         assertTrue(registerPage.isRedirectedToThePage(), "redirected to the wrong page.");
         log.info("navigation to registering page");
-        String name = "Jonas";
+        String name = "Jonukas";
         registerPage.writeName(name);
         registerPage.writePassword("John123");
         registerPage.pressSubmitCreateAccount();
@@ -39,7 +39,7 @@ public class MainPageTest extends BasePageTest {
         mainPage.pressCreateAccount();
         assertTrue(registerPage.isRedirectedToThePage(), "redirected to the wrong page.");
         log.info("navigation to registering page");
-        String name = "Jonas";
+        String name = "Jonukas";
         registerPage.writeName(name);
         registerPage.writePassword("John123");
         registerPage.pressSubmitCreateAccount();
